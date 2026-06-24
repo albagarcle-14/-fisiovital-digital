@@ -1,7 +1,7 @@
 # -fisiovital-digital
  
 Proyecto de gestión documental del curso IFCT055PO.
-Jefe de Proyecto: [TU NOMBRE]
+Jefe de Proyecto: Alba
  
 ## Fases del proyecto
 - [ ] Inicio
