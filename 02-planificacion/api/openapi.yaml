@@ -1,0 +1,48 @@
+openapi: 3.0.3
+info:
+  title: FisioVital Digital - API de Citas
+  description: Contrato de API unificado para la gestión de la agenda de las 5 clínicas de FisioVital.
+  version: 1.0.0
+servers:
+  - url: https://api.fisiovital.local/v1
+    description: Servidor local de desarrollo
+paths:
+  /citas:
+    get:
+      summary: Obtener el listado de citas médicas
+      description: Devuelve las citas programadas filtradas por clínica para evitar colisiones.
+      parameters:
+        - name: clinicaId
+          in: query
+          required: true
+          description: ID de la clínica (1 a 5)
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Listado de citas obtenido con éxito
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 101
+                    paciente:
+                      type: string
+                      example: "Marta Sánchez"
+                    fisioterapeuta:
+                      type: string
+                      example: "Carlos Gómez"
+                    fechaHora:
+                      type: string
+                      format: date-time
+                      example: "2026-07-15T10:30:00Z"
+                    estado:
+                      type: string
+                      example: "confirmada"
+        '401':
+          description: No autorizado. Falta el token de autenticación.
