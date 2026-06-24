@@ -8,7 +8,7 @@ El proyecto surge ante la necesidad crítica de la clínica FisioVital de automa
 - **M (Medible):** Lograr que el 100% de las facturas emitidas por la clínica queden registradas digitalmente bajo los endpoints `/facturas`.
 - **A (Alcanzable):** Basar el desarrollo estrictamente en el contrato técnico predefinido en `openapi.yaml`.
 - **R (Relevante):** Eliminar por completo los descuadres financieros de caja al cierre de cada mes en la clínica.
-- **T (Acotado en el tiempo):** Tener el sistema desplegado y operando en el entorno de producción en un plazo máximo de 2 meses.
+- **T (Acotado en el tiempo):** Tener el sistema desplegado y operando en el entorno de producción en un plazo máximo de 3 meses.
  
 ## 3. Alcance de alto nivel
 **Incluye:**
@@ -27,19 +27,21 @@ El proyecto surge ante la necesidad crítica de la clínica FisioVital de automa
 | Hito | Fecha estimada |
 |---|---|
 | Acta de Inicio y Project Charter aprobados | Semana 1 |
-| Configuración del entorno y Base de Datos | Semana 3 |
-| Desarrollo e integración de endpoints de la API | Semana 5 |
-| Pruebas de integración, regresión y QA (Módulo Facturación) | Semana 6 |
-| Pruebas de aceptación con el usuario (UAT) junto a Marta | Semana 7 |
-| Despliegue en producción y cierre del proyecto | Semana 8 (2 meses) |
+| Configuración del entorno de desarrollo y Base de Datos | Semana 3 |
+| Desarrollo completo de la lógica de negocio y endpoints de la API | Semana 6 (Fin de Mes 1) |
+| Pruebas de integración, regresión y QA del Módulo de Facturación | Semana 8 (Fin de Mes 2) |
+| Pruebas de aceptación con el usuario (UAT) junto a Marta y Ana | Semana 10 |
+| Capacitación del personal de recepción (Mitigación resistencia al cambio) | Semana 11 |
+| Despliegue final en producción y migración desde el sistema Excel anterior | Semana 12 (Fin de Mes 3) |
  
-## 5. Presupuesto estimado de alto nivel
-12.500 € (cifra orientativa calculada para cubrir las fases de análisis, desarrollo técnico basándose en OpenAPI, control de calidad QA y despliegue durante los 2 meses de ejecución).
- 
+ ## 5. Presupuesto estimado de alto nivel
+Entre 25.000 € y 35.000 € para todo el proyecto (excluyendo el mantenimiento posterior).
+     
 ## 6. Riesgos de alto nivel
-- **Retraso por datos de terceros:** Que Marta se demore en entregar la lista de formatos de identificación de las 3 mutuas principales, retrasando el diseño de los formularios.
-- **Atascamiento en pruebas de aceptación:** Que el personal de recepción requiera más tiempo de capacitación o detecte problemas de usabilidad que demoren la salida a producción.
-- **Incompatibilidad del contrato:** Encontrar discrepancias imprevistas entre la base de datos actual de la clínica y la estructura definida en `openapi.yaml`.
+  - **Resistencia al cambio:** Personal de recepción con más de 20 años de experiencia utilizando papel y métodos tradicionales, lo que puede dificultar la adopción de la plataforma web.
+  - **Seguridad y Privacidad Extrema:** Manejo de historiales clínicos confidenciales; cualquier fallo de seguridad vulnera la estricta ley de protección de datos.
+  - **Dependencia del plazo:** El contrato del proveedor del Excel actual vence en 3 meses exactos; si nos retrasamos, la clínica se queda sin sistema de gestión.
+ 
  
 ## 7. Jefe de proyecto y autoridad
 Alba García — autoridad para:
@@ -48,6 +50,7 @@ Alba García — autoridad para:
 - Actuar como el canal único de comunicación técnica con la cliente Marta Sánchez para la validación de entregables.
  
 ## 8. Criterios de éxito y aceptación
-- **Alineación Técnica:** Pasar el 100% de las pruebas funcionales garantizando que las respuestas de la API mapean de manera idéntica con el contrato establecido.
-- **Satisfacción del Cliente:** Obtención del "Sign-off" (aprobación firmada) de Marta Sánchez tras realizar las pruebas de uso en el entorno de pruebas.
-- **Puntualidad:** Completar el despliegue final antes de la fecha límite de los 2 meses para asegurar la apertura de la nueva sucursal de FisioVital.
+- Eliminación completa de errores por citas duplicadas en las clínicas.
+- Separación limpia y sin errores en la facturación de pacientes particulares y de seguros.
+- Capacidad de la gerencia para generar informes automáticos de ocupación por clínica en cualquier momento.
+  
