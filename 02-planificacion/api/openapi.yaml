@@ -1,48 +1,158 @@
-openapi: 3.0.3
+openapi: 3.0.0
 info:
-  title: FisioVital Digital - API de Citas
-  description: Contrato de API unificado para la gestión de la agenda de las 5 clínicas de FisioVital.
-  version: 1.0.0
-servers:
-  - url: https://api.fisiovital.local/v1
-    description: Servidor local de desarrollo
+  title: API FisioVital Digital
+  version: "1.0"
+  description: Contrato de API unificado para los módulos de Citas y Facturación de las 5 clínicas.
+
 paths:
   /citas:
     get:
-      summary: Obtener el listado de citas médicas
-      description: Devuelve las citas programadas filtradas por clínica para evitar colisiones.
-      parameters:
-        - name: clinicaId
-          in: query
-          required: true
-          description: ID de la clínica (1 a 5)
-          schema:
-            type: integer
+      summary: Listar citas
+      description: Obtiene el listado de citas programadas. Permite filtrar por clínica para evitar solisiones.
       responses:
-        '200':
-          description: Listado de citas obtenido con éxito
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: integer
-                      example: 101
-                    paciente:
-                      type: string
-                      example: "Marta Sánchez"
-                    fisioterapeuta:
-                      type: string
-                      example: "Carlos Gómez"
-                    fechaHora:
-                      type: string
-                      format: date-time
-                      example: "2026-07-15T10:30:00Z"
-                    estado:
-                      type: string
-                      example: "confirmada"
-        '401':
-          description: No autorizado. Falta el token de autenticación.
+        "200":
+          description: Lista de citas obtenida con éxito
+    post:
+      summary: Crear una nueva cita
+      description: Registra una cita validando que no haya colisiones de horario en la clínica especificada.
+      responses:
+        "201":
+          description: Cita creada exitosamente
+
+  /citas/{id}:
+    get:
+      summary: Obtener el detalle de una cita
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Detalle de la cita consultada
+    put:
+      summary: Modificar una cita
+      responses:
+        "200":
+          description: Cita modificada correctamente
+    delete:
+      summary: Cancelar una cita
+      responses:
+        "204":
+          description: Cita cancelada con éxito
+
+  /facturas:
+    get:
+      summary: Listar facturas
+      description: Obtiene el histórico de facturas emitidas en el sistema.
+      responses:
+        "200":
+          description: Lista de facturas obtenida con éxito
+    post:
+      summary: Generar una factura
+      description: Crea el registro de facturación asociado a una cita médica realizada.
+      responses:
+        "201":
+          description: Factura generada exitosamente
+
+  /facturas/{id}/pago:
+    patch:
+      summary: Marcar una factura como pagada
+      description: Actualiza el estado de pago de una factura específica a "pagado" una vez confirmado el cobro.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                estadoPago:
+                  type: string
+                  enum: [pagado]
+                  example: pagado
+      responses:
+        "200":
+          description: Factura marcada como pagada correctamente
+        "404":
+          description: Factura no encontrada
+
+components:
+  schemas:
+    Cita:
+      type: object
+      required:
+        - id
+        - fecha
+        - hora
+        - pacienteId
+        - fisioterapeutaId
+        - clinicaId
+        - estado
+      properties:
+        id:
+          type: string
+          example: "cit-8921"
+        fecha:
+          type: string
+          format: date
+          example: "2026-07-15"
+        hora:
+          type: string
+          example: "10:30"
+        pacienteId:
+          type: string
+          example: "pac-0041"
+        fisioterapeutaId:
+          type: string
+          example: "fis-0012"
+        clinicaId:
+          type: integer
+          description: Identificador de la sede de la clínica (1 a 5)
+          example: 3
+        estado:
+          type: string
+          enum: [programada, cancelada, asistida]
+          example: "programada"
+
+    Factura:
+      type: object
+      required:
+        - id
+        - citaId
+        - pacienteId
+        - montoTotal
+        - tipoPago
+        - estadoPago
+      properties:
+        id:
+          type: string
+          example: "fac-5512"
+        citaId:
+          type: string
+          example: "cit-8921"
+        pacienteId:
+          type: string
+          example: "pac-0041"
+        montoTotal:
+          type: number
+          format: float
+          example: 45.50
+        tipoPago:
+          type: string
+          enum: [particular, seguro]
+          example: "seguro"
+        companiaSeguro:
+          type: string
+          description: Requerido si el tipo de pago es seguro.
+          example: "Sanitas"
+        estadoPago:
+          type: string
+          enum: [pendiente, pagado]
+          example: "pendiente"
