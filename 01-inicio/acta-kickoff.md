@@ -1,0 +1,9 @@
+# Acta de kick-off interno
+ 
+# Acta de kick-off interno
+ 
+## Dudas/riesgos planteados por el equipo
+- **Frontend:** Solicita con urgencia la guía de marca/colores corporativos de FisioVital y confirmar si el diseño debe adaptarse a tablets, ordenadores o ambos (dispositivos que usarán las recepcionistas). Plantea como riesgo crítico la dependencia del contrato de la API: si Backend no define pronto la estructura de datos para citas y pacientes, el desarrollo de la interfaz quedará totalmente frenado.
+- **Backend:** Alerta sobre la alta sensibilidad legal del historial clínico, al tratarse de datos de salud de categoría especial según la normativa de protección de datos (RGPD); exige definir este alcance antes de modelar la base de datos. Además, advierte que la lógica de facturación mixta (particular y seguro) es compleja, requerirá bastante tiempo de desarrollo y apremia a cerrar el contrato de la API con Frontend.
+- **QA:** Expresa preocupación por el plazo ajustado de 3 meses, existiendo el riesgo de que solo dé tiempo a probar los "casos felices" (flujos sin errores) y se cuelen fallos en el módulo crítico de facturación. Plantea la necesidad técnica de simular (crear mocks de) las integraciones con los sistemas de las aseguradoras externas y solicita criterios de aceptación tempranos para diseñar el plan de pruebas.
+- **DevOps:** Establece como restricción legal inamovible que el alojamiento del servidor e infraestructura debe estar obligatoriamente dentro de la Unión Europea debido al manejo de datos de salud (RGPD). Alerta de que el presupuesto impactará directamente en la arquitectura: es necesario definir pronto si se financiará un entorno de pre-producción (Staging) o si debido a los costes solo se contará con desarrollo y producción.
