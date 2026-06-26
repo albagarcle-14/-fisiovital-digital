@@ -9,8 +9,6 @@ Duración objetivo: 8–10 minutos. Guion detallado con notas del orador.
 - Jefa de Proyecto: **Alba García**
 - Repositorio (evidencia): [ -fisiovital-digital-main ](../..#L1)
 
-Nota: saluda brevemente, presenta objetivo en 2 frases.
-
 ---
 
 ## 2. Agenda (20 s)
@@ -21,8 +19,6 @@ Nota: saluda brevemente, presenta objetivo en 2 frases.
 - Evidencia en Git (commits, PRs, issues, tags)
 - Conclusiones y siguientes pasos
 
-Nota: muestra agenda y explica que seguirás el ciclo de vida.
-
 ---
 
 ## 3. Inicio / Justificación (1 min)
@@ -30,15 +26,11 @@ Nota: muestra agenda y explica que seguirás el ciclo de vida.
 - Documento base: [01-inicio/project-charter.md](01-inicio/project-charter.md#L1-L20)
 - Stakeholders clave: Marta Sánchez (patrocinadora), Ana (administradora). See [01-inicio/stakeholders.md](01-inicio/stakeholders.md#L1-L12).
 
-Nota: resalta el problema de negocio y el objetivo SMART.
-
 ---
 
 ## 4. Alcance (45 s)
 - Incluye: endpoints `/facturas`, `/facturas/{id}`, `/facturas/{id}/estado`; roles Administrador y Recepcionista; almacenamiento seguro. ([Project Charter](01-inicio/project-charter.md#L23-L48)).
 - Excluye: pasarela de pago online, integración automática con mutuas (Fase 2).
-
-Nota: aclarar lo entregado y lo fuera de alcance.
 
 ---
 
@@ -47,7 +39,6 @@ Nota: aclarar lo entregado y lo fuera de alcance.
 - Cronograma y Gantt: [02-planificacion/cronograma.md](02-planificacion/cronograma.md#L1-L30)
 - Riesgos principales: integraciones con aseguradoras, RGPD, cambios de alcance ([02-planificacion/riesgos.md](02-planificacion/riesgos.md#L1-L20)).
 
-Nota: muestra hitos y los riesgos que se monitorizan.
 
 ---
 
@@ -56,7 +47,6 @@ Nota: muestra hitos y los riesgos que se monitorizan.
 - DevOps: entornos en la UE, pipeline CI/CD, checklist de salida a producción. ([03-ejecucion/devops/pipeline-despliegue.md](03-ejecucion/devops/pipeline-despliegue.md#L1-L40))
 - Incidencias: **INC-001** (incompatibilidad de librería de cifrado) resuelta actualizando la imagen de contenedor. ([03-ejecucion/incidencias/incidencia-001.md](03-ejecucion/incidencias/incidencia-001.md#L1-L20))
 
-Nota: explica el flujo de trabajo (desarrollo → PR → CI → pre-prod → QA → producción).
 
 ---
 
@@ -64,7 +54,6 @@ Nota: explica el flujo de trabajo (desarrollo → PR → CI → pre-prod → QA 
 - Estado actual: autenticación, citas e historial OK; Facturación Mixta: pruebas bloqueadas ~60% por reglas de mutuas. ([03-ejecucion/qa/pruebas.md](03-ejecucion/qa/pruebas.md#L1-L20)).
 - Mitigaciones: mocks para aseguradoras y redefinición de casos de prueba.
 
-Nota: indicar plan para terminar la validación de facturación.
 
 ---
 
@@ -72,7 +61,6 @@ Nota: indicar plan para terminar la validación de facturación.
 - Acta de aceptación: aceptado con condiciones; facturación parcialmente entregada. ([sesion-4-cierre/acta-aceptacion.md](sesion-4-cierre/acta-aceptacion.md#L1-L30)).
 - Informe de cierre con comparativa plan vs real y entregables listados. ([sesion-4-cierre/informe-cierre.md](sesion-4-cierre/informe-cierre.md#L1-L40)).
 
-Nota: explicar condiciones pendientes para cierre definitivo.
 
 ---
 
@@ -90,9 +78,6 @@ Comando para subir commits si no están en remoto:
 cd "c:\Users\alba_\Downloads\-fisiovital-digital-main"
 git push -u origin main
 ```
-
-Nota: muestra los commits en pantalla y, si fuera necesario, explica el `git push`.
-
 ---
 
 ## 10. Lecciones aprendidas y recomendaciones (1 min)
