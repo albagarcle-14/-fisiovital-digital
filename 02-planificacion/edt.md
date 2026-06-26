@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+=======
+# Estructura de Desglose de Trabajo (EDT / WBS) — FisioVital Digital
+
+A continuación se detalla la descomposición jerárquica del proyecto, adaptada a las necesidades reales del cliente (5 clínicas, entorno web/tablet, cumplimiento RGPD estricto y transición desde sistema Excel).
+
+```mermaid
+>>>>>>> 2d7efd15fa0bb8563e31e7fc25506a52f34e9118
 mindmap
   root((FisioVital Digital))
     Análisis y Diseño
@@ -28,4 +36,9 @@ mindmap
     Despliegue y Cierre
       Migración de datos desde Excel
       Capacitación del personal
+<<<<<<< HEAD
       Despliegue en producción - 3 meses
+=======
+      Despliegue en producción - 3 meses
+```
+>>>>>>> 2d7efd15fa0bb8563e31e7fc25506a52f34e9118
