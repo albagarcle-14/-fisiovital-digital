@@ -1,4 +1,3 @@
-```markdown
 # Plan de Pruebas y Estado de QA — Semana 6
 
 ## Resumen de Ejecución
