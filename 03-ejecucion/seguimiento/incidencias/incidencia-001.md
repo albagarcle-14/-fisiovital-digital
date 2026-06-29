@@ -1,4 +1,3 @@
-```markdown
 # Informe de Incidencia — INC-001
 
 ## Detalles de la incidencia
