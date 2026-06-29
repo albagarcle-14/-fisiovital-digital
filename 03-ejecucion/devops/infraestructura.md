@@ -1,4 +1,3 @@
-```markdown
 # Estado de Infraestructura y DevOps — Semana 6
 
 ## Configuración del Entorno Cloud
