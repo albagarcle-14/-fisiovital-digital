@@ -1,4 +1,3 @@
-```markdown
 # Estrategia de despliegue — FisioVital Digital
 
 ## Entornos
