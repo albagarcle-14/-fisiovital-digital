@@ -1,4 +1,3 @@
-```markdown
 # Informe de seguimiento — Semana 6
 
 **Fecha:** 24 de junio de 2026
